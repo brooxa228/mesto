@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Места в России</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img src="./images/Vector.svg" alt="логотип место" class="header__logo">
+    </header>
+      <main class="content">
+      <section class="profile">
+        <div class="profile__info">
+          <img src="./images/image.svg" alt="аватар профиля" class="profile__avatar">
+            <div class="profile__container">
+              <div class="profile__container-button">
+                <h1 class="profile__title">Жак</h1>
+                <button class="profile__edit-button"></button>
+              </div>  
+              <p class="profile__subtitle"></p>
+            </div>  
+        </div>
+        <button class="profile__add-button"></button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img src="./images/img/benjamin-van-der-merwe-obXzEg8BW-o-unsplash.jpg" alt="карачевск" class="element__pic">
+            <div class="element__like-container">
+              <h2 class="element__title">Два слона</h2>
+              <button class="element__like-button"></button>
+            </div>  
+        </div>
+        <div class="element">
+          <img src="./images/img/zdenek-machacek-OlKkCmToXEs-unsplash (1).jpg" alt="карачевск" class="element__pic">
+            <div class="element__like-container">
+              <h2 class="element__title">Попуга</h2>
+              <button class="element__like-button"></button>
+            </div>  
+        </div>
+        <div class="element">
+          <img src="./images/img/pascal-van-soest-KRpc_fR6dj8-unsplash.jpg" alt="карачевск" class="element__pic">
+            <div class="element__like-container">
+              <h2 class="element__title">Шерсть с рогами на фоне гор</h2>
+              <button class="element__like-button"></button>
+            </div>  
+        </div>
+          <div class="element">
+            <img src="./images/img/pavan-prasad-nw1slFnKRYE-unsplash.jpg" alt="карачевск" class="element__pic">
+              <div class="element__like-container">
+                <h2 class="element__title">Игуана</h2>
+                <button class="element__like-button"></button>
+              </div>  
+          </div>
+          <div class="element">
+            <img src="./images/img/philipp-pilz-orzc5mDgqP8-unsplash.jpg" alt="карачевск" class="element__pic">
+              <div class="element__like-container">
+                <h2 class="element__title">Морской котик</h2>
+                <button class="element__like-button"></button>
+              </div>  
+          </div>
+          <div class="element">
+            <img src="./images/img/stephen-crane-mQYzCal0dAA-unsplash.jpg" alt="карачевск" class="element__pic">
+              <div class="element__like-container">
+                <h2 class="element__title">Лиса</h2>
+                <button class="element__like-button"></button>
+              </div>  
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__info">© 2020 Mesto Russia</p>
+      </footer>
+      <section class="popup">
+        <div class="popup__container">
+          <button class="popup__close"></button>
+          <div class="popup__content">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form class="popup__form" id="popup__form">
+              <label class="popup__field">
+                <input name="name" class="popup__input" placeholder="Жак-Ив Кусто">
+              </label>
+              <label class="popup__field">
+                <input name="job" class="popup__input" placeholder="Исследователь океана">
+              </label>
+              <button class="popup__save" type="submit">Сохранить</button>
+            </form>
+          </div> 
+        </div>     
+      </section>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>    
