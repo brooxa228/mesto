@@ -1,6 +1,5 @@
 .profile__edit-button {
     background: transparent url(../../../images/Vector_edit.png) no-repeat;
-    border: none;
     width: 24px;
     height: 24px;
     border: 1px solid #ffffff;
@@ -16,7 +15,7 @@
 
 @media screen and (max-width:640px) {
     .profile__edit-button {
-        background-size: 8px;
+        background-size: 7.5px;
         width: 18px;
         height: 18px;
         margin-top: 8px;
