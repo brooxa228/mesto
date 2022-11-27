@@ -3,9 +3,10 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
+    min-width: 320px;
     padding: 0;
     color: #ffffff;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Arial', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
