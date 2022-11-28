@@ -3,15 +3,12 @@ const popupCLoseButtonElement = popupElement.querySelector('.popup__close')
 const popupOpenButtonElement = document.querySelector('.profile__edit-button')
 
 function togglePopupVisibility () {
-    popupElement.classList.toggle('popup__open')
+    popupElement.classList.toggle('popup_open')
+    render() 
 }
 
 popupOpenButtonElement.addEventListener('click', togglePopupVisibility); 
 popupCLoseButtonElement.addEventListener('click', togglePopupVisibility); 
-
-
-
-
 
 
 
@@ -42,10 +39,6 @@ const userJobElement = document.querySelector('.profile__subtitle')
 function render () {
     userNameElement.textContent = userName
     userJobElement.textContent = userJob
+    nameInput.value = userName
+    jobInput.value = userJob
 }
-
-
-
-
-
-

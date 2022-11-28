@@ -5,5 +5,10 @@
     font-size: 14px;
     line-height: 17px;
     padding: 0 0 13px;
-    margin: 0;
+    margin-bottom: 28px;
+    height: 14px;
+}
+
+.popup__input:nth-child(2) {
+    margin-bottom: 0;
 }
