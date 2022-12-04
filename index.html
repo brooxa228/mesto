@@ -17,72 +17,45 @@
           <div class="profile__container">
             <div class="profile__container-button">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <button class="profile__edit-button" type="button" onclick="openModal('#popup-edit-profile')"></button>
             </div>  
             <p class="profile__subtitle">Исследователь океана</p>
           </div>  
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button class="profile__add-button" type="button" onclick="openModal('#popup-add-post')"></button>
       </section>
-      <section class="elements">
-        <div class="element">
-          <img src="./images/img/benjamin-van-der-merwe-obXzEg8BW-o-unsplash.jpg" alt="слоны" class="element__pic">
-          <div class="element__like-container">
-            <h3 class="element__title">Два слона</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>  
-        </div>
-        <div class="element">
-          <img src="./images/img/zdenek-machacek-OlKkCmToXEs-unsplash.jpg" alt="попугай" class="element__pic">
-          <div class="element__like-container">
-            <h3 class="element__title">Попуга</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>  
-        </div>
-        <div class="element">
-          <img src="./images/img/pascal-van-soest-KRpc_fR6dj8-unsplash.jpg" alt="як" class="element__pic">
-          <div class="element__like-container">
-            <h3 class="element__title">Шерсть с рогами на фоне гор</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>  
-        </div>
-        <div class="element">
-          <img src="./images/img/pavan-prasad-nw1slFnKRYE-unsplash.jpg" alt="игуана" class="element__pic">
-          <div class="element__like-container">
-              <h3 class="element__title">Игуана</h3>
-              <button class="element__like-button" type="button"></button>
-            </div>  
-        </div>
-        <div class="element">
-          <img src="./images/img/philipp-pilz-orzc5mDgqP8-unsplash.jpg" alt="морской котик" class="element__pic">
-          <div class="element__like-container">
-            <h3 class="element__title">Морской котик</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>  
-        </div>
-        <div class="element">
-          <img src="./images/img/stephen-crane-mQYzCal0dAA-unsplash.jpg" alt="лиса" class="element__pic">
-          <div class="element__like-container">
-            <h3 class="element__title">Лиса</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>  
-        </div>
+      <section class="elements" id="posts">
       </section>
     </main>
     <footer class="footer">
         <p class="footer__info">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
-      <div class="popup__container">
-        <button class="popup__close" type="button"></button>
+    <section class="popup" id="popup-edit-profile">
+      <div class="popup__container"> 
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" id="popup__form" name="form">
+        <form class="popup__form" id="edit-profile-form" name="form">
           <input name="name" class="popup__input" placeholder="Имя">
           <input name="job" class="popup__input" placeholder="Профессия">
           <button class="popup__save" type="submit">Сохранить</button>  
+          <button class="popup__close" type="button" onclick="closeModal('#popup-edit-profile')"></button>
         </form>
-      </div>     
+      </div>         
     </section>
+    <section class="popup" id="popup-add-post">
+      <div class="popup__container">
+        <button class="popup__close" type="button" onclick="closeModal('#popup-add-post')"></button>
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" id="add-post-form" name="form">
+          <input name="postName" class="popup__input" placeholder="Название">
+          <input name="postLink" class="popup__input" placeholder="Ссылка на картинку">
+          <button class="popup__save" type="submit">Сохранить</button>  
+        </form>
+      </div>         
+    </section>
+    <section class="popup" id="popup-image-container">
+      <div class="popup__image-container" id="gallery">
+      </div>  
+    </section>  
     <script src="./scripts/index.js"></script>
   </body>
 </html>    

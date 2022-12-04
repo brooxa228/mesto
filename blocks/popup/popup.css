@@ -6,7 +6,10 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 100;
-    display: none;
+    visibility: hidden;
     justify-content: center;
     align-items: center;
+    display: flex;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
 }
