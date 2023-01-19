@@ -26,7 +26,7 @@ const initialCards = [
 ]; 
 
 
-const popupElement = document.querySelector('.popup')
+
 const popupEditElement = document.getElementById('popup-edit-profile')
 const popupOpenEditButton = document.querySelector('.profile__edit-button')
 const popupCloseEditButton = popupEditElement.querySelector('.popup__close')
@@ -37,11 +37,14 @@ const popupAddSaveButton = popupAddElement.querySelector('.popup__save')
 const popupImage = document.getElementById('popup-image')
 const popupCloseImageButton = popupImage.querySelector('.popup__close')
 
-let nameInput = popupEditElement.querySelector('#edit-profile-form input[name="name"]')
-let jobInput = popupElement.querySelector('#edit-profile-form input[name="job"]')
-const formEditElement = popupElement.querySelector('#edit-profile-form')
-let nameProfile = document.querySelector('.profile__title')
-let jobProfile = document.querySelector('.profile__subtitle')
+const nameInput = popupEditElement.querySelector('#edit-profile-form input[name="name"]')
+const jobInput = popupEditElement.querySelector('#edit-profile-form input[name="job"]')
+const formEditElement = popupEditElement.querySelector('#edit-profile-form')
+const nameProfile = document.querySelector('.profile__title')
+const jobProfile = document.querySelector('.profile__subtitle')
+
+const image = document.querySelector('.popup__image');
+const imageSubtitle = document.querySelector('.popup__image-title')
 
 const openPopup = (popup) => {
   popup.classList.add('popup_open')
@@ -88,9 +91,7 @@ function handleEditFormSubmit(evt) {
   closePopup(popupEditElement)
 }
 
-function createImage(name, link) {
-  const image = document.querySelector('.popup__image');
-  const imageSubtitle = document.querySelector('.popup__image-title')
+function setImageData(name, link) {
   image.src = link;
   image.alt = name;
   imageSubtitle.textContent = name;
@@ -105,15 +106,16 @@ function createCard({ name, link}) {
   cardTitle.textContent = name
   const cardPic = card.querySelector('.element__pic')
   cardPic.src = link
+  cardPic.alt = cardTitle.textContent
   card.querySelector('.popup__delete-btn').addEventListener('click', () => {
     card.remove()
   })
  const likeButton = card.querySelector('.element__like-button')
-  card.querySelector('.element__like-button').addEventListener('click', () => {
+    likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('element__like-button_active') 
   })
   cardPic.addEventListener('click', () => {
-    createImage(name, link)
+    setImageData(name, link)
     openPopup(popupImage)
   })
   return card
@@ -129,9 +131,9 @@ function renderCards() {
 }
 renderCards()
 
-let formAddElement = document.querySelector('#add-post-form')
-let nameAddInput = popupAddElement.querySelector('#add-post-form input[name="postName"]')
-let linkAddInput = popupAddElement.querySelector('#add-post-form input[name="postLink"]')
+const formAddElement = document.querySelector('#add-post-form')
+const nameAddInput = popupAddElement.querySelector('#add-post-form input[name="postName"]')
+const linkAddInput = popupAddElement.querySelector('#add-post-form input[name="postLink"]')
 
 
 function handleAddFormSubmit(evt) {
@@ -142,6 +144,8 @@ function handleAddFormSubmit(evt) {
   })
   сardsContainer.prepend(newCard)
   closePopup(popupAddElement)
+  nameAddInput.value ='';
+  linkAddInput.value = '';
 }
 
 
