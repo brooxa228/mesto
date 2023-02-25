@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js'
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -25,7 +28,14 @@ const initialCards = [
   }
 ]; 
 
-
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}
 
 const popupEditElement = document.getElementById('popup-edit-profile')
 const popupOpenEditButton = document.querySelector('.profile__edit-button')
@@ -61,13 +71,13 @@ const openImagePopup = function() {
 const openEditPopup = function() {
   nameInput.value = nameProfile.textContent
   jobInput.value = jobProfile.textContent
-  declineValidation(formEditElement, validationConfig)
+  formEditElementValidation.declineValidation()
   openPopup(popupEditElement)
 }
 
 const openAddPopup = function() {
   formAddElement.reset()
-  declineValidation(formAddElement, validationConfig)
+  formAddElementValidation.declineValidation()
   openPopup(popupAddElement)
 }
 
@@ -105,29 +115,16 @@ function setImageData(name, link) {
 
 const сardsContainer = document.querySelector('.elements__list')
 
-function createCard({ name, link}) {
-  const сardTemplate = document.querySelector('#initial-cards-template').content.querySelector('.element')
-  const card = сardTemplate.cloneNode(true)
-  const cardTitle = card.querySelector('.element__title')
-  cardTitle.textContent = name
-  const cardPic = card.querySelector('.element__pic')
-  cardPic.src = link
-  cardPic.alt = cardTitle.textContent
-  card.querySelector('.popup__delete-btn').addEventListener('click', () => {
-    card.remove()
-  })
- const likeButton = card.querySelector('.element__like-button')
-    likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('element__like-button_active') 
-  })
-  cardPic.addEventListener('click', () => {
-    setImageData(name, link)
-    openPopup(popupImage)
-  })
-  return card
+function createCard(card) {
+    const newCard = new Card(card, '#initial-cards-template', handleCardCLick)
+    const cardElement = newCard.createCard()
+    return cardElement
 }
 
-
+function handleCardCLick(name, link) {
+  setImageData(name, link)
+  openPopup(popupImage)
+}
 
 function renderCards() {
   initialCards.forEach((card , index) => {
@@ -135,8 +132,14 @@ function renderCards() {
     сardsContainer.prepend(cardHtml)
   })
 }
+
 renderCards()
 
+const formEditElementValidation = new FormValidator(validationConfig, formEditElement)
+const formAddElementValidation = new FormValidator(validationConfig, formAddElement)
+
+formEditElementValidation.enableValidation()
+formAddElementValidation.enableValidation()
 
 const nameAddInput = popupAddElement.querySelector('#add-post-form input[name="postName"]')
 const linkAddInput = popupAddElement.querySelector('#add-post-form input[name="postLink"]')
@@ -155,9 +158,9 @@ function handleAddFormSubmit(evt) {
 }
 
 
+
+
 formAddElement.addEventListener('submit', handleAddFormSubmit)
 formEditElement.addEventListener('submit', handleEditFormSubmit)
 popupOpenEditButton.addEventListener('click', openEditPopup)
 popupOpenAddButton.addEventListener('click', openAddPopup)
-
-
