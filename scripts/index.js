@@ -71,13 +71,13 @@ const openImagePopup = function() {
 const openEditPopup = function() {
   nameInput.value = nameProfile.textContent
   jobInput.value = jobProfile.textContent
-  formEditElementValidation.declineValidation()
+  formEditElementValidation.resetValidation()
   openPopup(popupEditElement)
 }
 
 const openAddPopup = function() {
   formAddElement.reset()
-  formAddElementValidation.declineValidation()
+  formAddElementValidation.resetValidation()
   openPopup(popupAddElement)
 }
 

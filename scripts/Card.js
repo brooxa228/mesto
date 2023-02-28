@@ -32,7 +32,7 @@ export default class Card {
         return this._element
     }
 
-    _likeToggle() {
+    _toggleLike() {
         this._likeButton.classList.toggle('element__like-button_active')
     }
 
@@ -42,7 +42,7 @@ export default class Card {
 
     _addEventListeners() {
         this._likeButton.addEventListener('click', () => {
-            this._likeToggle()
+            this._toggleLike()
         })
 
         this._deleteButton.addEventListener('click', () => {
