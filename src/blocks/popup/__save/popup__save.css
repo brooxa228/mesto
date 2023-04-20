@@ -6,21 +6,26 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    margin-top: 41px;
     font-size: 18px;
     line-height: 22px;
-    opacity: 1; 
+}
+
+.popup__save:disabled {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    cursor: default;
+    opacity: .2;
 }
 
 .popup__save:hover {
-    opacity: .8;
-    transition: opacity .2s ease;
+    opacity: 0.8;
+    transition: 0.5s;
 }
 
 @media screen and (max-width:576px) {
     .popup__save {
-        margin-top: 41px;
         font-size: 14px;
         line-height: 17px;
     }
-} 
+}
