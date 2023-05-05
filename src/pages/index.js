@@ -8,21 +8,19 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 
-const editProfilePopup = document.querySelector('#popup-edit-profile');
+import {
+  editForm,
+  nameInput,
+  jobInput,
+  buttonEditProfile,
+  buttonAddCard,
+  userNameSelector,
+  userJobSelector,
+  addForm,
+} from '../utils/constants.js'
 
-const editForm = document.querySelector('#edit-profile-form');
-const nameInput = editProfilePopup.querySelector('[name="name"]');
-const jobInput = editProfilePopup.querySelector('[name="job"]');
-
-const editProfileButton = document.querySelector('.profile__edit-button');
-const addCardButton = document.querySelector('.profile__add-button');
-const userNameSelector = '.profile__title'; //записал по селектору
-const userJobSelector = '.profile__subtitle';
-
-const addForm = document.querySelector('#add-card-form');
-
-const addFormValidator = new FormValidator(validationConfig, addForm)
-const editFormValidator = new FormValidator(validationConfig, editForm)
+const formValidatorAddCard = new FormValidator(validationConfig, addForm)
+const formValidatorEditProfile = new FormValidator(validationConfig, editForm)
 
 const cardContainer = new Section({items: initialCards, renderer: createCard}, '.elements__list')
 
@@ -51,17 +49,17 @@ function handleOpenEditPopup() {
   const {name, job} = user.getUserInfo();
   nameInput.value = name;
   jobInput.value = job;
-  editFormValidator.resetValidation();
+  formValidatorEditProfile.resetValidation();
 };
 
 function handleOpenAddCardPopup() {
   addPopup.open();
   addForm.reset();
-  addFormValidator.resetValidation();
+  formValidatorAddCard.resetValidation();
 };
 
-editProfileButton.addEventListener('click', handleOpenEditPopup);
-addCardButton.addEventListener('click', handleOpenAddCardPopup);
+buttonEditProfile.addEventListener('click', handleOpenEditPopup);
+buttonAddCard.addEventListener('click', handleOpenAddCardPopup);
 
 cardContainer.renderItems()
 
@@ -74,5 +72,5 @@ function handleCardClick(link, name) {
   imagePopup.open(link, name);
 };
 
-addFormValidator.enableValidation();
-editFormValidator.enableValidation();
+formValidatorAddCard.enableValidation();
+formValidatorEditProfile.enableValidation();
