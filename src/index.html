@@ -12,7 +12,9 @@
     <main class="content">
       <section class="profile">
         <div class="profile__info">
-          <img src="<%=require('./images/image.svg')%>" alt="аватар профиля" class="profile__avatar">
+          <button class="profile__avatar-button">
+            <img src="<%=require('./images/image.svg')%>" alt="аватар профиля" class="profile__avatar">
+          </button>
           <div class="profile__container">
             <div class="profile__container-button">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -35,11 +37,11 @@
       <div class="popup__container"> 
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" id="edit-profile-form" name="form">
+        <form class="popup__form" id="edit-profile-form" name="form-edit-profile">
           <input name="name" class="popup__input" placeholder="Имя" required minlength="2" maxlength="40">
           <span class="popup__error name-error"></span>
-          <input name="job" class="popup__input" placeholder="Профессия" required minlength="2" maxlength="200">
-          <span class="popup__error job-error"></span>
+          <input name="about" class="popup__input" placeholder="Профессия" required minlength="2" maxlength="200">
+          <span class="popup__error about-error"></span>
           <button class="popup__save" type="submit">Сохранить</button>  
         </form>
       </div>         
@@ -48,12 +50,12 @@
       <div class="popup__container">
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" id="add-card-form" name="form">
+        <form class="popup__form" id="add-card-form" name="form-add-card">
           <input name="name" class="popup__input" placeholder="Название" required maxlength="30" minlength="2">
           <span class="popup__error name-error"></span>
           <input name="link" class="popup__input" placeholder="Ссылка на картинку"required type="url">
           <span class="popup__error link-error"></span>
-          <button class="popup__save" type="submit">Сохранить</button>  
+          <button class="popup__save" type="submit">Создать</button>  
         </form>
       </div>         
     </section>
@@ -64,15 +66,38 @@
         <p class="popup__image-title">fdvsgsdf</p>
       </div>  
     </section>  
+    <section class="popup" id="popup-avatar-update">
+      <div class="popup__container">
+        <button class="popup__close" type="button"></button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__form" id="update-avatar-form" name="form-avatar">
+          <input name="avatar" class="popup__input" placeholder="Ссылка на картинку" required type="url">
+          <span class="popup__error avatar-error"></span>
+          <button class="popup__save" type="submit">Сохранить</button>  
+        </form>
+      </div>     
+    </section>
+    <section class="popup" id="popup-with-confirmation">
+      <div class="popup__container">
+        <form class="popup__form" id="confirmation-form" name="form-confirmation">
+          <button class="popup__close" type="button"></button>
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button class="popup__save" type="submit">Да</button>  
+        </form>  
+      </div>     
+    </section>
     <template id="initial-cards-template">
       <li class="element">
         <button class="element__delete-btn" type="button"></button>
         <button class="element__image-btn">
           <img src="#" alt="#" class="element__pic" id="card-popup">
         </button>
-        <div class="element__like-container">
+        <div class="element__info-container">
           <h3 class="element__title"> </h3>
-          <button class="element__like-button" type="button"></button>
+          <div class="element__like-container">
+            <button class="element__like-button" type="button"></button>
+            <span class="element__like-counter">10000</span>
+          </div>  
         </div>  
       </li>
     </template>
