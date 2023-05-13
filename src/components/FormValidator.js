@@ -13,7 +13,7 @@ export default class FormValidator{
     _setEventListeners() {
         this._inputs.forEach(input => {
             input.addEventListener('input', () => {
-    
+                console.log('1')
                 this._toggleButtonState();
     
                 if (input.checkValidity()) {
