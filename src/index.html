@@ -37,7 +37,7 @@
       <div class="popup__container"> 
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" id="edit-profile-form" name="form-edit-profile">
+        <form novalidate class="popup__form" id="edit-profile-form" name="form-edit-profile">
           <input name="name" class="popup__input" placeholder="Имя" required minlength="2" maxlength="40">
           <span class="popup__error name-error"></span>
           <input name="about" class="popup__input" placeholder="Профессия" required minlength="2" maxlength="200">
@@ -50,7 +50,7 @@
       <div class="popup__container">
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" id="add-card-form" name="form-add-card">
+        <form novalidate class="popup__form" id="add-card-form" name="form-add-card">
           <input name="name" class="popup__input" placeholder="Название" required maxlength="30" minlength="2">
           <span class="popup__error name-error"></span>
           <input name="link" class="popup__input" placeholder="Ссылка на картинку"required type="url">
@@ -70,7 +70,7 @@
       <div class="popup__container">
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Обновить аватар</h3>
-        <form class="popup__form" id="update-avatar-form" name="form-avatar">
+        <form novalidate class="popup__form" id="update-avatar-form" name="form-avatar">
           <input name="avatar" class="popup__input" placeholder="Ссылка на картинку" required type="url">
           <span class="popup__error avatar-error"></span>
           <button class="popup__save" type="submit">Сохранить</button>  
@@ -79,7 +79,7 @@
     </section>
     <section class="popup" id="popup-with-confirmation">
       <div class="popup__container">
-        <form class="popup__form" id="confirmation-form" name="form-confirmation">
+        <form novalidate class="popup__form" id="confirmation-form" name="form-confirmation">
           <button class="popup__close" type="button"></button>
           <h3 class="popup__title">Вы уверены?</h3>
           <button class="popup__save" type="submit">Да</button>  
@@ -101,6 +101,5 @@
         </div>  
       </li>
     </template>
-    <script src="./pages/index.js" type="module"></script>
   </body>
 </html>    
