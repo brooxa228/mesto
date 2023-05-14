@@ -77,7 +77,6 @@ editPopup.setEventListeners();
 
 const imagePopup = new PopupWithImage('#popup-image');
 imagePopup.setEventListeners(); 
-console.log(imagePopup);
 
 const avatarPopup = new PopupWithForm('#popup-avatar-update', handleUpdateAvatarSubmit, 'Сохранение...')
 avatarPopup.setEventListeners();
